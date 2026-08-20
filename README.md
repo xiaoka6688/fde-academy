@@ -3,7 +3,7 @@
 > **AI 前沿部署工程师（Frontier Deployment Engineer）—— 从入门到面试的系统性学习平台**
 
 <p align="center">
-  <a href="https://fde-academy-ba6.pages.dev/"><strong>在线阅读</strong></a> ·
+  <a href="https://fde.pojuai.com/"><strong>在线阅读</strong></a> ·
   <a href="#-平台模块"><strong>平台模块</strong></a> ·
   <a href="#-本地运行"><strong>本地运行</strong></a>
 </p>
@@ -18,14 +18,14 @@ FDE 学习中心是一个面向 **AI 前沿部署工程师** 的系统性学习�
 
 | 模块 | 路由 | 内容 | 适合人群 |
 |------|------|------|----------|
-| FDE 系统学习 | [/](https://fde-academy-ba6.pages.dev/) | 15 个阶段：AI 基础 → GPU → 推理引擎 → 分布式 → 生产部署 | AI 解决方案架构师 |
-| Agentic AI 系统学习 | [/agentic-ai/](https://fde-academy-ba6.pages.dev/agentic-ai/) | 20 篇：Python 基础 → LLM → LangGraph → RAG → 多智能体 → 实战 | AI Agent 工程师 / 校招 / 实习生 |
-| 开源源码解读 | [/opensource/](https://fde-academy-ba6.pages.dev/opensource/) | 6 个项目：nanoGPT、llm.c、llama.cpp、vLLM、SGLang、Claude Code | 深入理解底层原理 |
-| 工具教程 | [/tools/](https://fde-academy-ba6.pages.dev/tools/) | Cursor、Claude Code、Karpathy AI 编程、OpenSpec 工作流 | 提升开发效率 |
-| AI 行业趋势 | [/trends/](https://fde-academy-ba6.pages.dev/trends/) | 30+ 条动态，S/A/B/C 四级影响评估，每周更新 | 把握行业方向 |
-| GitHub 趋势 | [/github-trends/](https://fde-academy-ba6.pages.dev/github-trends/) | 半年数据，5 大分类 31 个项目 | 追踪开源前沿 |
-| AI 应用趋势 | [/ai-applications/](https://fde-academy-ba6.pages.dev/ai-applications/) | 40+ 新兴产品，从大厂到独立开发者 | 发现机会与创新 |
-| FDE 招聘动态 | [/jobs/](https://fde-academy-ba6.pages.dev/jobs/) | 5 大类别：推理/部署、Agent、算法/架构、平台/基础设施、解决方案 | 求职与招聘参考 |
+| FDE 系统学习 | [/](https://fde.pojuai.com/) | 15 个阶段：AI 基础 → GPU → 推理引擎 → 分布式 → 生产部署 | AI 解决方案架构师 |
+| Agentic AI 系统学习 | [/agentic-ai/](https://fde.pojuai.com/agentic-ai/) | 20 篇：Python 基础 → LLM → LangGraph → RAG → 多智能体 → 实战 | AI Agent 工程师 / 校招 / 实习生 |
+| 开源源码解读 | [/opensource/](https://fde.pojuai.com/opensource/) | 6 个项目：nanoGPT、llm.c、llama.cpp、vLLM、SGLang、Claude Code | 深入理解底层原理 |
+| 工具教程 | [/tools/](https://fde.pojuai.com/tools/) | Cursor、Claude Code、Karpathy AI 编程、OpenSpec 工作流 | 提升开发效率 |
+| AI 行业趋势 | [/trends/](https://fde.pojuai.com/trends/) | 30+ 条动态，S/A/B/C 四级影响评估，每周更新 | 把握行业方向 |
+| GitHub 趋势 | [/github-trends/](https://fde.pojuai.com/github-trends/) | 半年数据，5 大分类 31 个项目 | 追踪开源前沿 |
+| AI 应用趋势 | [/ai-applications/](https://fde.pojuai.com/ai-applications/) | 40+ 新兴产品，从大厂到独立开发者 | 发现机会与创新 |
+| FDE 招聘动态 | [/jobs/](https://fde.pojuai.com/jobs/) | 5 大类别：推理/部署、Agent、算法/架构、平台/基础设施、解决方案 | 求职与招聘参考 |
 
 ---
 
