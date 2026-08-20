@@ -161,6 +161,11 @@ const config = {
               { to: '/agentic-ai/18-job-market-analysis', label: '岗位知识图谱' },
             ],
           },
+          {
+            href: 'https://github.com/xiaoka6688/fde-academy',
+            label: 'GitHub',
+            position: 'right',
+          },
         ],
       },
       footer: {
