@@ -1,0 +1,212 @@
+// @ts-check
+const {themes} = require('prism-react-renderer');
+
+const config = {
+  title: 'FDE 学习中心',
+  tagline: 'AI 前沿部署工程师 — 从入门到实战的一条龙平台',
+  favicon: 'img/favicon.ico',
+  // 部署在 Cloudflare Pages：域名前缀 = 项目名 fde-academy
+  // 绑定自定义域名后，把 url 改成 'https://你的域名' 即可（只需改这一行）
+  url: 'https://fde-academy.pages.dev',
+  baseUrl: '/',
+  trailingSlash: true,
+  onBrokenLinks: 'warn',
+  onBrokenMarkdownLinks: 'warn',
+  i18n: {
+    defaultLocale: 'zh-Hans',
+    locales: ['zh-Hans'],
+  },
+  presets: [
+    [
+      'classic',
+      /** @type {import('@docusaurus/preset-classic').Options} */
+      ({
+        docs: {
+          id: 'learn',
+          path: 'docs',
+          sidebarPath: './sidebars/learn.js',
+          routeBasePath: '/',
+          numberPrefixParser: false,
+          sidebarCollapsed: true,
+        },
+        blog: {
+          routeBasePath: 'blog',
+          showReadingTime: false,
+          postsPerPage: 20,
+          blogSidebarTitle: '全部文章',
+          blogSidebarCount: 'ALL',
+          feedOptions: {
+            type: ['rss', 'atom'],
+          },
+        },
+        theme: {
+          customCss: './src/css/custom.css',
+        },
+      }),
+    ],
+  ],
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'opensource',
+        path: 'docs-opensource',
+        routeBasePath: 'opensource',
+        tagsBasePath: 'tags',
+        sidebarPath: './sidebars/opensource.js',
+        numberPrefixParser: false,
+        sidebarCollapsed: true,
+        includeCurrentVersion: true,
+        versions: {},
+        exclude: ['**/_*.{js,jsx,ts,tsx}', '**/_*.json', '**/__tests__/**', '**/node_modules/**'],
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'tools',
+        path: 'docs-tools',
+        routeBasePath: 'tools',
+        tagsBasePath: 'tags',
+        sidebarPath: './sidebars/tools.js',
+        numberPrefixParser: false,
+        sidebarCollapsed: true,
+        includeCurrentVersion: true,
+        versions: {},
+        exclude: ['**/_*.{js,jsx,ts,tsx}', '**/_*.json', '**/__tests__/**', '**/node_modules/**'],
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'agentic-ai',
+        path: 'docs-agentic-ai',
+        routeBasePath: 'agentic-ai',
+        tagsBasePath: 'tags',
+        sidebarPath: './sidebars/agentic-ai.js',
+        numberPrefixParser: false,
+        sidebarCollapsed: true,
+        includeCurrentVersion: true,
+        versions: {},
+        exclude: ['**/_*.{js,jsx,ts,tsx}', '**/_*.json', '**/__tests__/**', '**/node_modules/**'],
+      },
+    ],
+  ],
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
+  themeConfig:
+    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    ({
+      navbar: {
+        title: 'FDE 学习中心',
+        logo: {
+          alt: 'FDE Logo',
+          src: 'img/logo.png',
+        },
+        items: [
+          {
+            type: 'dropdown',
+            label: '系统学习',
+            position: 'left',
+            items: [
+              { to: '/01-basics/', label: 'FDE 系统学习' },
+              { to: '/agentic-ai/', label: 'Agentic AI 系统学习' },
+            ],
+          },
+          {
+            type: 'dropdown',
+            label: '源码解读',
+            position: 'left',
+            items: [
+              { to: '/opensource/', label: '导航图' },
+              { to: '/opensource/nanogpt', label: 'nanoGPT' },
+              { to: '/opensource/llm-c', label: 'llm.c' },
+              { to: '/opensource/llama-cpp', label: 'llama.cpp' },
+              { to: '/opensource/vllm', label: 'vLLM' },
+              { to: '/opensource/sglang', label: 'SGLang' },
+              { to: '/opensource/claude-code/00-文档导航/', label: 'Claude Code 架构' },
+            ],
+          },
+          {
+            type: 'dropdown',
+            label: '工具教程',
+            position: 'left',
+            items: [
+              { to: '/tools/', label: '全部工具' },
+            ],
+          },
+          {
+            to: '/blog/',
+            label: '博客',
+            position: 'left',
+          },
+          {
+            type: 'dropdown',
+            label: 'AI 趋势',
+            position: 'left',
+            items: [
+              { to: '/trends/', label: '行业趋势' },
+              { to: '/ai-applications/', label: '应用趋势' },
+              { to: '/github-trends/', label: 'GitHub 趋势' },
+            ],
+          },
+          {
+            type: 'dropdown',
+            label: 'FDE 招聘动态',
+            position: 'left',
+            items: [
+              { to: '/jobs/', label: '岗位列表' },
+              { to: '/agentic-ai/18-job-market-analysis', label: '岗位知识图谱' },
+            ],
+          },
+        ],
+      },
+      footer: {
+        style: 'dark',
+        links: [
+          {
+            title: '系统学习',
+            items: [
+              {label: '入门：什么是 FDE', to: '/01-basics/01-what-is-fde'},
+              {label: '模型架构', to: '/02-model-architecture/transformer-overview'},
+              {label: '推理引擎', to: '/04-inference-optimization/engine-overview'},
+              {label: '生产部署', to: '/07-production-deployment/deployment-architecture'},
+              {label: '面试答题框架', to: '/12-interview/interview-framework'},
+            ],
+          },
+          {
+            title: '实战',
+            items: [
+              {label: '源码解读教程', to: '/opensource/'},
+              {label: '工具教程', to: '/tools/'},
+              {label: '动手实验', to: '/09-labs/'},
+              {label: '成本运营', to: '/08-cost-operations/cost-breakdown'},
+            ],
+          },
+          {
+            title: '更多',
+            items: [
+              {label: '博客文章', to: '/blog/'},
+              {label: 'AI 趋势', to: '/trends/'},
+              {label: 'FDE 招聘动态', to: '/jobs/'},
+              {label: '团队建设', to: '/14-team-building/'},
+            ],
+          },
+        ],
+        copyright: `FDE Learning Center`,
+      },
+      prism: {
+        theme: themes.github,
+        darkTheme: themes.dracula,
+      },
+      docs: {
+        sidebar: {
+          autoCollapseCategories: true,
+        },
+      },
+    }),
+};
+
+module.exports = config;

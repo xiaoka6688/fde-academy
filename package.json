@@ -1,0 +1,62 @@
+{
+  "name": "fde-learning",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FDE 学习中心 — AI 前沿部署工程师从入门到面试的系统性学习平台，涵盖 AI 基础、推理优化、生产部署、Agentic AI、源码解读、行业动态与招聘",
+  "keywords": [
+    "FDE",
+    "Frontier Deployment Engineer",
+    "AI 部署",
+    "LLM 推理",
+    "vLLM",
+    "SGLang",
+    "Agentic AI",
+    "LangGraph",
+    "大模型",
+    "GPU",
+    "面试",
+    "招聘"
+  ],
+  "scripts": {
+    "docusaurus": "docusaurus",
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "clear": "docusaurus clear",
+    "serve": "docusaurus serve",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids"
+  },
+  "dependencies": {
+    "@docusaurus/core": "^3.10.1",
+    "@docusaurus/preset-classic": "^3.10.1",
+    "@docusaurus/theme-mermaid": "^3.10.1",
+    "@mdx-js/react": "^3.0.0",
+    "caniuse-lite": "^1.0.30001793",
+    "clsx": "^2.0.0",
+    "prism-react-renderer": "^2.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "^3.10.1",
+    "@docusaurus/types": "^3.10.1",
+    "puppeteer": "^25.0.4"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 3 chrome version",
+      "last 3 firefox version",
+      "last 3 safari version"
+    ]
+  },
+  "engines": {
+    "node": ">=18.0"
+  }
+}

@@ -1,0 +1,23 @@
+node_modules/
+build/
+.docusaurus/
+.cache-loader/
+
+# Deploy CLI
+.vercel/
+.wrangler/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.local
