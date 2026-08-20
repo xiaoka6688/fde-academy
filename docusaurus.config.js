@@ -5,9 +5,9 @@ const config = {
   title: 'FDE 学习中心',
   tagline: 'AI 前沿部署工程师 — 从入门到实战的一条龙平台',
   favicon: 'img/favicon.ico',
-  // 部署在 Cloudflare Pages：域名前缀 = 项目名 fde-academy
+  // 部署在 Cloudflare Pages：fde-academy.pages.dev 已被占用，实际分配 fde-academy-ba6
   // 绑定自定义域名后，把 url 改成 'https://你的域名' 即可（只需改这一行）
-  url: 'https://fde-academy.pages.dev',
+  url: 'https://fde-academy-ba6.pages.dev',
   baseUrl: '/',
   trailingSlash: true,
   onBrokenLinks: 'warn',
