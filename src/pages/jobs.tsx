@@ -10,6 +10,7 @@ interface Job {
   source: string;
   tags: string[];
   salary?: string;
+  first_seen?: string;
 }
 
 interface Category {
@@ -464,6 +465,28 @@ function JobsContent({ jobsData }: { jobsData: JobsData }) {
       .filter((cat) => cat.jobs.length > 0);
   }, [activeCategory, selectedTag, selectedSource, searchKeyword, jobsData]);
 
+  // Auto-computed stats: tag frequency, recent additions, data freshness
+  const { topTags, newCount, staleDays } = useMemo(() => {
+    const counts = new Map<string, number>();
+    let newJobs = 0;
+    const now = Date.now();
+    jobsData.categories.forEach((cat) => {
+      cat.jobs.forEach((job) => {
+        (job.tags || []).forEach((t) => counts.set(t, (counts.get(t) || 0) + 1));
+        if (job.first_seen) {
+          const days = (now - new Date(job.first_seen).getTime()) / 86400000;
+          if (days >= 0 && days <= 14) newJobs++;
+        }
+      });
+    });
+    const updatedAge = Math.floor((now - new Date(jobsData.last_updated).getTime()) / 86400000);
+    return {
+      topTags: Array.from(counts.entries()).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, 15),
+      newCount: newJobs,
+      staleDays: updatedAge,
+    };
+  }, [jobsData]);
+
   const totalFiltered = filteredCategories.reduce((sum, cat) => sum + cat.jobs.length, 0);
 
   return (
@@ -475,7 +498,23 @@ function JobsContent({ jobsData }: { jobsData: JobsData }) {
         </h1>
         <p style={{ color: 'var(--fde-text-light)', fontSize: '0.95rem', margin: 0 }}>
           共 {jobsData.total_jobs} 个岗位 · 更新于 {jobsData.last_updated}
+          {newCount > 0 && (
+            <span style={{ color: '#059669', fontWeight: 600 }}> · 近两周新增 {newCount} 个</span>
+          )}
         </p>
+        {staleDays > 30 && (
+          <div style={{
+            marginTop: '0.75rem',
+            padding: '0.625rem 1rem',
+            background: '#fffbeb',
+            border: '1px solid #fde68a',
+            borderRadius: '8px',
+            fontSize: '0.85rem',
+            color: '#92400e',
+          }}>
+            ⚠️ 数据已 {staleDays} 天未更新（更新于 {jobsData.last_updated}），自动采集任务可能未正常运行
+          </div>
+        )}
       </div>
 
       {/* Filter Bar */}
@@ -523,8 +562,8 @@ function JobsContent({ jobsData }: { jobsData: JobsData }) {
         </div>
       )}
 
-      {/* Hot Skills */}
-      {jobsData.hot_skills.length > 0 && (
+      {/* Hot Skills (auto-computed from job tags) */}
+      {(topTags.length > 0 || jobsData.hot_skills.length > 0) && (
         <div style={{
           background: '#fff',
           borderRadius: '12px',
@@ -532,24 +571,27 @@ function JobsContent({ jobsData }: { jobsData: JobsData }) {
           padding: '1.5rem',
           marginBottom: '2.5rem',
         }}>
-          <h3 style={{ margin: '0 0 1rem', fontSize: '1.1rem', fontWeight: 700 }}>🎯 热门技能</h3>
+          <h3 style={{ margin: '0 0 1rem', fontSize: '1.1rem', fontWeight: 700 }}>🎯 热门技能 <span style={{ fontSize: '0.75rem', fontWeight: 400, color: 'var(--fde-text-light)' }}>按岗位出现次数 · 自动统计</span></h3>
           <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-            {jobsData.hot_skills.map((item) => (
+            {(topTags.length > 0
+              ? topTags
+              : jobsData.hot_skills.map((s) => [s, 0] as [string, number])
+            ).map(([tag, count]) => (
               <span
-                key={item}
+                key={tag}
                 style={{
                   fontSize: '0.8rem',
                   padding: '0.35rem 0.75rem',
-                  background: 'rgba(100,108,255,0.06)',
+                  background: tag === selectedTag ? 'var(--ifm-color-primary)' : 'rgba(100,108,255,0.06)',
                   border: '1px solid rgba(100,108,255,0.15)',
                   borderRadius: '999px',
-                  color: 'var(--ifm-color-primary)',
+                  color: tag === selectedTag ? '#fff' : 'var(--ifm-color-primary)',
                   fontWeight: 500,
                   cursor: 'pointer',
                 }}
-                onClick={() => setSelectedTag(item === selectedTag ? '' : item)}
+                onClick={() => setSelectedTag(tag === selectedTag ? '' : tag)}
               >
-                {item}
+                {tag}{count > 0 && <span style={{ opacity: 0.65, marginLeft: '0.25rem' }}>×{count}</span>}
               </span>
             ))}
           </div>
