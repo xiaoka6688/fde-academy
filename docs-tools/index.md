@@ -18,12 +18,15 @@ sidebar_position: 1
 | [Karpathy 的 AI 生码观点](./karpathy-ai-coding) | ✅ 完成 | Vibe Coding → Agentic Engineering 演进 |
 | [OpenSpec 项目开发工作流](./openspec-workflow) | ✅ 完成 | Spec-Driven + AI 生码完整流程 |
 
-## 部署运维工具
+## 部署运维工具（FDE 核心场景）
 
 | 教程 | 状态 | 说明 |
 |------|------|------|
-| vLLM 部署教程 | 🚧 编写中 | 从 0 到 1 部署 vLLM 推理服务 |
-| Docker GPU 环境搭建 | 🚧 编写中 | CUDA + Docker + NVIDIA Container Toolkit |
+| [Docker GPU 环境搭建](./docker-gpu-setup) | ✅ 完成 | CUDA + Docker + NVIDIA Container Toolkit + 常见坑排查 |
+| [GPU / 推理服务运维工具链](./gpu-ops-toolkit) | ✅ 完成 | 监控（nvitop/DCGM）、压测（vllm bench）、OOM/NCCL 调试速查 |
+| vLLM 部署实战 | 📌 见主站 | 完整流程在[动手实验：vLLM 7B 部署](/09-labs/vllm-7b-deploy)，工具线不重复建设 |
+
+> 分工说明：**主站讲原理与完整实验，工具线讲操作速查与工具选型**。
 
 ---
 

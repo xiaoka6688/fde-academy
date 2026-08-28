@@ -27,6 +27,15 @@ const sidebars = {
       type: 'doc',
       id: 'openspec-workflow',
     },
+    // ===== 部署运维工具 =====
+    {
+      type: 'doc',
+      id: 'docker-gpu-setup',
+    },
+    {
+      type: 'doc',
+      id: 'gpu-ops-toolkit',
+    },
   ],
 };
 
