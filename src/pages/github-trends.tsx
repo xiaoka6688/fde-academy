@@ -229,6 +229,28 @@ const CATEGORIES: CategoryGroup[] = [
         source: 'Rananjay Raj',
         date: '2026-05-19',
       },
+      {
+        name: 'Agency Agents',
+        stars: '39K+',
+        growth: '8 月爆火',
+        description: '"AI 猎头"项目：55 个 AI Agent 角色覆盖前端、UI 设计、营销运营等 9 大部门，支持 Claude Code 等多种工具，助力"一人公司"。',
+        category: '垂直 Agent',
+        url: 'https://cloud.tencent.com/developer/article/2639474',
+        source: '腾讯云开发者社区',
+        date: '2026-08-12',
+        highlight: '多 Agent 组织化',
+      },
+      {
+        name: 'K-Dense-AI/scientific-agent-skills',
+        stars: 'Trending',
+        growth: '8 月上榜',
+        description: '将任何 AI Agent 变成"AI 科学家"：面向科研领域的第一大 Agent Skills 库，号称 17.5 万+ 科学家使用。',
+        category: '垂直 Agent',
+        url: 'https://github.com/trending',
+        source: 'GitHub Trending',
+        date: '2026-08-20',
+        highlight: '科研 Agent',
+      },
     ],
   },
   {
@@ -279,6 +301,28 @@ const CATEGORIES: CategoryGroup[] = [
         source: '多源汇总',
         date: '2025.12-2026.06',
         highlight: '可观测性标配',
+      },
+      {
+        name: 'usestrix/strix',
+        stars: '42K',
+        growth: '7 月 Trending Top 10',
+        description: 'AI 安全 Agent：自动化渗透测试与加固，Agent 工具链/编码 harness 类项目崛起的代表。',
+        category: '安全',
+        url: 'https://github.com/usestrix/strix',
+        source: 'Analytics Vidhya',
+        date: '2026-07-15',
+        highlight: 'AI 安全自动化',
+      },
+      {
+        name: 'TencentDB Agent Memory',
+        stars: 'TrendShift 月度',
+        growth: '8 月登榜',
+        description: '团队级 AI Agent 记忆中枢：将对话、文档、代码转化为共享记忆，记忆层成为 Agent 基础设施标配。',
+        category: '基础设施',
+        url: 'https://trendshift.io/monthly',
+        source: 'TrendShift',
+        date: '2026-08-25',
+        highlight: '记忆层服务化',
       },
     ],
   },
@@ -429,7 +473,7 @@ export default function GitHubTrendsPage(): React.ReactElement {
             GitHub AI 项目趋势
           </h1>
           <p style={{ color: 'var(--fde-text-light)', fontSize: '0.95rem', margin: 0, lineHeight: 1.6 }}>
-            基于 2025 年 12 月至 2026 年 6 月（半年）X/Twitter 社区讨论和 GitHub Trending 数据，整理最受欢迎的 AI/Agent 开源项目。
+            基于 2025 年 12 月至今（持续更新）X/Twitter 社区讨论和 GitHub Trending 数据，整理最受欢迎的 AI/Agent 开源项目。
           </p>
         </div>
 
@@ -470,7 +514,7 @@ export default function GitHubTrendsPage(): React.ReactElement {
           color: 'var(--fde-text-light)',
           textAlign: 'center',
         }}>
-          数据来源于 X/Twitter 社区讨论和 GitHub Trending，覆盖 2025.12-2026.06 半年周期，持续更新中。
+          数据来源于 X/Twitter 社区讨论和 GitHub Trending，覆盖 2025.12 至今，持续更新中。
         </div>
       </div>
     </Layout>

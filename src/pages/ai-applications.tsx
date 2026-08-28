@@ -150,7 +150,7 @@ const CATEGORIES: CategoryGroup[] = [
       {
         name: 'Sora / Kling / Vidu',
         tagline: 'AI 视频生成三巨头',
-        description: 'OpenAI Sora、快手 Kling、生数 Vidu 三足鼎立。2026 年视频质量达到 1080p、60 秒以上，可控制角色动作一致性。国内 Kling 和 Vidu 在中文场景领先。',
+        description: 'OpenAI Sora、快手 Kling、生数 Vidu 三足鼎立。2026 年视频质量达到 1080p、60 秒以上，可控制角色动作一致性。国内 Kling 和 Vidu 在中文场景领先。2026 年 8 月可灵 AI 完成近 30 亿美元融资（全球视频大模型最大融资纪录，估值约 180 亿美元），商业化领跑。',
         category: '创意工具',
         url: 'https://klingai.com',
         pricing: '免费额度 + 付费',

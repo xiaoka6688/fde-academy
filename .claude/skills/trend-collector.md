@@ -6,6 +6,31 @@ type: skill
 
 # AI 行业趋势采集 Skill
 
+> **调度状态（2026-08-29 更新）**：原"每周三 9:17 自动运行（session 内需激活）"机制已失效——依赖本地会话开启，导致数据停在 2026-06-02。
+> 现行机制：ZCode 定时自动化（每周三 9:30），**尚待创建**——因"定时任务会话内不能创建新定时任务"的系统限制，需在普通会话中创建。
+> 创建提示词已固化在下方第 0 节，新会话照抄执行 `CronCreate` 即可。
+>
+> 2026-08-29 已人工补跑一次：trends.json 30→49 条，data_period 至 2026.08，trends.tsx 时间文案改为动态读取 data_period。
+
+## 0. 定时任务创建提示词（待执行）
+
+在普通（非定时任务）会话中用 CronCreate 创建：cron `30 9 * * 3`，recurring=true，title「每周三 9:30 采集 AI 行业趋势并自动部署」，prompt 如下：
+
+```
+执行 FDE 学习中心的 AI 行业趋势每周采集任务（项目即当前工作区）：
+
+1. 读取 static/data/trends.json，收集所有已有趋势的 title 用于去重，当前 data_period 与 last_updated。
+2. 用联网搜索采集近一周（重点是上周至今）的 AI 行业动态，覆盖 6 大类别：模型发布、研究论文、开源项目、行业动态（投融资/政策/市场）、推理部署（推理引擎/硬件/部署方案）、Agent 应用（框架/协议/产品化）。每类至少 1-2 条，只收录有可靠来源的重磅信息。
+3. 新趋势条目字段：title、summary（2-3 句）、source、url、date（YYYY-MM-DD）、category、impact_level（S/A/B/C）、fde_relevance。
+4. 按 title 去重后追加进 trends.json 对应 category 的 trends 数组（旧条目全部保留）。
+5. 更新 trends.json：last_updated=今天、total_trends 重算、data_period 的结束月份顺延、highlights 两组（S 级亮点 / A 级速览）用最新重要条目刷新。
+6. 若 GitHub Trending 出现值得收录的重量级新 AI 项目，追加到 src/pages/github-trends.tsx 对应分组的 repos 数组（字段：name、stars、growth、description、category、url、source、date、highlight 可选），注意与已有项目去重。
+7. git add 相关文件并 commit（提交说明"更新 AI 趋势数据 YYYY-MM-DD"），然后 git push origin master。
+8. 输出简报：本次新增趋势数、各类别条数、GitHub 新增项目数、git 推送结果。
+
+注意：单次搜索失败就跳过该来源继续；不修改本任务范围外的任何文件；git 可免交互推送（连接被重置时等待重试几次）。
+```
+
 ## 用途
 
 采集 AI 领域最新行业动态，更新 `static/data/trends.json`，为 `src/pages/trends.tsx` 页面提供数据。
