@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-08-29",
-  "total_trends": 49,
+  "last_updated": "2026-08-30",
+  "total_trends": 51,
   "data_period": "2025.12-2026.08",
   "categories": [
     {
@@ -370,6 +370,26 @@
           "impact_level": "B",
           "summary": "2026 上半年国内具身智能及机器人领域 288 起融资、226 家企业、274 家投资机构参与。",
           "fde_relevance": "具身智能 = 边缘部署 + 实时推理，FDE 技能栈新延伸方向"
+        },
+        {
+          "title": "开发者风向：补贴性 token 价格将在 6 个月内上涨",
+          "source": "X @nikunj (FPV Ventures) · follow-builders feed",
+          "url": "https://x.com/nikunj",
+          "date": "2026-08-30",
+          "category": "行业动态",
+          "impact_level": "B",
+          "summary": "FPV Ventures 合伙人 Nikunj Kothari 预判：大模型实验室之间的价格战不可持续，补贴性 token 价格将在 6 个月内上涨。",
+          "fde_relevance": "直接影响推理成本规划：低价窗口期锁定长期用量，并提前优化单位 token 成本"
+        },
+        {
+          "title": "前沿实验室集体押注递归自我改进（RSI）",
+          "source": "X @mattturck (FirstMark) · follow-builders feed",
+          "url": "https://x.com/mattturck",
+          "date": "2026-08-29",
+          "category": "行业动态",
+          "impact_level": "B",
+          "summary": "FirstMark 合伙人 Matt Turck：所有前沿 AI 实验室都在做同一件事——AI 构建 AI 的递归自我改进（RSI）。",
+          "fde_relevance": "训练侧算力需求持续外溢，部署侧 GPU 供给与调度能力将更稀缺"
         }
       ]
     },

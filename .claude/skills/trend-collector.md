@@ -12,6 +12,24 @@ type: skill
 >
 > 2026-08-29 已人工补跑一次：trends.json 30→49 条，data_period 至 2026.08，trends.tsx 时间文案改为动态读取 data_period。
 
+## 1.5 第 1 信息源：follow-builders 建造者 feed（2026-08-30 接入）
+
+借鉴 [zarazhangrui/follow-builders](https://github.com/zarazhangrui/follow-builders) 的思路——**顶级建造者一手动态是趋势的最上游信号**（领先媒体报道数天）。该项目用 GitHub Actions 每日抓取 8+ 位建造者的 X 动态、官方博客、AI 播客（含转录），feed JSON 直接存在其仓库里，**raw 一次 HTTP 拉取即可，无需安装任何依赖**：
+
+| Feed | 覆盖窗口 | 结构 |
+|---|---|---|
+| `https://raw.githubusercontent.com/zarazhangrui/follow-builders/main/feed-x.json` | 24h | `d.x[]` → `name/handle/bio` + `tweets[].text/createdAt`；`d.stats` |
+| `https://raw.githubusercontent.com/zarazhangrui/follow-builders/main/feed-blogs.json` | 72h | `d.blogs[]`（发文频率低，常为空，属正常） |
+| `https://raw.githubusercontent.com/zarazhangrui/follow-builders/main/feed-podcasts.json` | 14d | `d.podcasts[]` → `title/publishedAt`（含转录） |
+
+**采集流程中的用法**：
+1. 每周采集开始时先 curl 拉取三个 feed；**拉取失败或为空直接跳过，回退 WebSearch 流程，不阻塞**
+2. 从推文/播客/博客中识别"有行业信号"的内容（模型动向、价格与商业模式、Agent 生态、基础设施），**重大信息需 WebSearch 交叉验证后入库**；单条推文一般只够 B/C 级，不硬凑 S/A
+3. 与已有趋势按 title 去重
+4. 各建造者的完整信息源清单见其仓库 `config/default-sources.json`，可按需扩展
+
+2026-08-30 首次接入演示：从 feed-x 提取 2 条 B 级行业信号入库（token 价格上涨预判、前沿实验室押注 RSI）。
+
 ## 0. 定时任务创建提示词（待执行）
 
 在普通（非定时任务）会话中用 CronCreate 创建：cron `30 9 * * 3`，recurring=true，title「每周三 9:30 采集 AI 行业趋势并自动部署」，prompt 如下：
@@ -20,13 +38,14 @@ type: skill
 执行 FDE 学习中心的 AI 行业趋势每周采集任务（项目即当前工作区）：
 
 1. 读取 static/data/trends.json，收集所有已有趋势的 title 用于去重，当前 data_period 与 last_updated。
-2. 用联网搜索采集近一周（重点是上周至今）的 AI 行业动态，覆盖 6 大类别：模型发布、研究论文、开源项目、行业动态（投融资/政策/市场）、推理部署（推理引擎/硬件/部署方案）、Agent 应用（框架/协议/产品化）。每类至少 1-2 条，只收录有可靠来源的重磅信息。
-3. 新趋势条目字段：title、summary（2-3 句）、source、url、date（YYYY-MM-DD）、category、impact_level（S/A/B/C）、fde_relevance。
-4. 按 title 去重后追加进 trends.json 对应 category 的 trends 数组（旧条目全部保留）。
-5. 更新 trends.json：last_updated=今天、total_trends 重算、data_period 的结束月份顺延、highlights 两组（S 级亮点 / A 级速览）用最新重要条目刷新。
-6. 若 GitHub Trending 出现值得收录的重量级新 AI 项目，追加到 src/pages/github-trends.tsx 对应分组的 repos 数组（字段：name、stars、growth、description、category、url、source、date、highlight 可选），注意与已有项目去重。
-7. git add 相关文件并 commit（提交说明"更新 AI 趋势数据 YYYY-MM-DD"），然后 git push origin master。
-8. 输出简报：本次新增趋势数、各类别条数、GitHub 新增项目数、git 推送结果。
+2. 先拉取 follow-builders 建造者 feed（curl 本文第 1.5 节的三个 raw URL，拉取失败直接跳过不阻塞），从建造者推文/播客/博客中识别有行业信号的内容，重大信息用联网搜索交叉验证后入库。
+3. 用联网搜索采集近一周（重点是上周至今）的 AI 行业动态，覆盖 6 大类别：模型发布、研究论文、开源项目、行业动态（投融资/政策/市场）、推理部署（推理引擎/硬件/部署方案）、Agent 应用（框架/协议/产品化）。每类至少 1-2 条，只收录有可靠来源的重磅信息。
+4. 新趋势条目字段：title、summary（2-3 句）、source、url、date（YYYY-MM-DD）、category、impact_level（S/A/B/C）、fde_relevance。
+5. 按 title 去重后追加进 trends.json 对应 category 的 trends 数组（旧条目全部保留）。
+6. 更新 trends.json：last_updated=今天、total_trends 重算、data_period 的结束月份顺延、highlights 两组（S 级亮点 / A 级速览）用最新重要条目刷新。
+7. 若 GitHub Trending 出现值得收录的重量级新 AI 项目，追加到 src/pages/github-trends.tsx 对应分组的 repos 数组（字段：name、stars、growth、description、category、url、source、date、highlight 可选），注意与已有项目去重。
+8. git add 相关文件并 commit（提交说明"更新 AI 趋势数据 YYYY-MM-DD"），然后 git push origin master。
+9. 输出简报：本次新增趋势数、各类别条数、GitHub 新增项目数、git 推送结果。
 
 注意：单次搜索失败就跳过该来源继续；不修改本任务范围外的任何文件；git 可免交互推送（连接被重置时等待重试几次）。
 ```
