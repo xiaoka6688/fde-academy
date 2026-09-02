@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-08-30",
-  "total_trends": 51,
-  "data_period": "2025.12-2026.08",
+  "last_updated": "2026-09-02",
+  "total_trends": 55,
+  "data_period": "2025.12-2026.09",
   "categories": [
     {
       "name": "模型发布",
@@ -390,6 +390,36 @@
           "impact_level": "B",
           "summary": "FirstMark 合伙人 Matt Turck：所有前沿 AI 实验室都在做同一件事——AI 构建 AI 的递归自我改进（RSI）。",
           "fde_relevance": "训练侧算力需求持续外溢，部署侧 GPU 供给与调度能力将更稀缺"
+        },
+        {
+          "title": "建造者信号：开源权重模型逼近企业级拐点",
+          "source": "X @levie (Box CEO) · follow-builders feed",
+          "url": "https://x.com/levie",
+          "date": "2026-09-01",
+          "category": "行业动态",
+          "impact_level": "B",
+          "summary": "Box CEO Aaron Levie：开源权重基础模型能力快速提升、后训练基础设施日益成熟，企业用开源模型替代闭源 API 的门槛正快速下降。",
+          "fde_relevance": "企业自部署+微调需求上升，正是 FDE 岗位的核心场景扩张"
+        },
+        {
+          "title": "建造者信号：Coding tokens 正在变成一种基础设施",
+          "source": "X @rauchg (Vercel CEO) · follow-builders feed",
+          "url": "https://x.com/rauchg",
+          "date": "2026-08-31",
+          "category": "行业动态",
+          "impact_level": "B",
+          "summary": "Vercel CEO Guillermo Rauch：编码 token 的消耗已具基础设施属性，但多数企业仍用临时方式采购和管理，缺乏容量规划与成本治理。",
+          "fde_relevance": "token 成本治理将成为企业 AI 基础设施的标准议题，对应本站成本运营章节"
+        },
+        {
+          "title": "Linear 产品负责人 Nan Yu 加入 OpenAI Codex/ChatGPT 团队",
+          "source": "X @thenanyu · follow-builders feed",
+          "url": "https://x.com/thenanyu",
+          "date": "2026-08-31",
+          "category": "行业动态",
+          "impact_level": "C",
+          "summary": "Nan Yu 宣布离开 Linear 加入 OpenAI 做 Codex 与 ChatGPT，头部产品人才向编程 Agent 集中。",
+          "fde_relevance": "侧面印证编程 Agent 是当前 AI 产品竞争的最前线"
         }
       ]
     },
@@ -465,6 +495,16 @@
           "impact_level": "B",
           "summary": "8 月 24-26 日举办；同期博客发布 AMD GPU 投机解码实践、Ray Direct Transport 分片权重传输、扩散 RL 加速等。",
           "fde_relevance": "投机解码与权重传输是吞吐优化的最新工具箱"
+        },
+        {
+          "title": "vLLM 半月连发 v0.27.0 / v0.28.0：Kimi K3 获全栈支持",
+          "source": "GitHub Releases（日期经 API 核实）",
+          "url": "https://github.com/vllm-project/vllm/releases",
+          "date": "2026-08-26",
+          "category": "推理部署",
+          "impact_level": "A",
+          "summary": "v0.27.0（8-10）重点新增 Kimi K3 模型全栈支持，v0.27.1 补丁（8-11）后 v0.28.0（8-26）跟进，迭代节奏保持每 2-3 周一版。",
+          "fde_relevance": "新模型发布到推理引擎可用的周期已缩短到天级，跟踪 release 节奏是推理运维日常"
         }
       ]
     },
@@ -557,10 +597,10 @@
     {
       "title": "A 级趋势速览",
       "items": [
+        "vLLM 连发 v0.27.0/v0.28.0：Kimi K3 全栈支持，昇腾获官方级推理支持",
         "GPT-5.6（Sol/Terra/Luna）与 Claude Opus 4.8 密集发布，竞争聚焦 Coding 与 Agent",
-        "vLLM v0.26.0 + Ascend v0.18.0：昇腾 NPU 获官方级推理支持",
-        "可灵 AI 融资近 30 亿美元，创全球视频大模型融资纪录",
-        "上半年全国 AI 投融资近乎翻倍（5306 起 / 4544.9 亿元），资金流向应用层与物理 AI"
+        "办公 Agent 巨头对垒：字节豆包工作（整合 TRAE/扣子/飞书）vs 腾讯 WorkBuddy",
+        "可灵 AI 融资近 30 亿美元；上半年全国 AI 投融资近乎翻倍"
       ]
     }
   ]
