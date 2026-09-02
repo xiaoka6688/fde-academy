@@ -1,11 +1,51 @@
 {
   "last_updated": "2026-09-02",
-  "total_trends": 55,
+  "total_trends": 65,
   "data_period": "2025.12-2026.09",
   "categories": [
     {
       "name": "模型发布",
       "trends": [
+        {
+          "title": "星火 X2.5-4B/1.7B 开源：端侧唯一百万上下文 + 昇腾原生支持",
+          "source": "科大讯飞 / 华为计算",
+          "url": "http://m.toutiao.com/group/7680565083054948879/",
+          "date": "2026-09-01",
+          "category": "模型发布",
+          "summary": "科大讯飞词元星火推出并开源星火 X2.5-4B 和 X2.5-1.7B 两款端侧通用大模型，是端侧模型中唯一原生支持最长 100 万 Token 上下文的模型。昇腾 AI 基础软硬件为两款模型提供原生训练推理全流程支持。",
+          "impact_level": "B",
+          "fde_relevance": "端侧百万上下文 + 昇腾原生支持，为信创端侧部署提供新选项；百万上下文对端侧 KV Cache 管理提出新挑战。"
+        },
+        {
+          "title": "NVIDIA 发布 Nemotron-Nano-9B-v2：可切换推理模式的端侧小模型",
+          "source": "NVIDIA / AI D-A-M-N",
+          "url": "https://ai-damn.com/nvidia-unveils-nemotron-nano-9b-v2-with-switchable-ai-reasoning-1756767980365",
+          "date": "2026-09-01",
+          "category": "模型发布",
+          "summary": "NVIDIA 推出 Nemotron-Nano-9B-v2 小语言模型，主打效率和灵活性，支持可切换的 AI 推理模式，面向资源受限场景。",
+          "impact_level": "C",
+          "fde_relevance": "端侧小模型是推理部署的重要分支，可切换推理模式为动态算力分配提供新思路。"
+        },
+        {
+          "title": "谷歌 Gemini 3.8 Flash 即将上线：编程能力追赶 OpenAI/Anthropic",
+          "source": "华尔街日报 / IT之家",
+          "url": "https://m.weibo.cn/detail/5338639593639953",
+          "date": "2026-09-02",
+          "category": "模型发布",
+          "summary": "据华尔街日报报道，谷歌即将发布 Gemini 3.8 Flash（内部代号 Skimaki），最早当地时间周三上线，主打编程能力大幅升级，追赶 OpenAI 与 Anthropic。",
+          "impact_level": "B",
+          "fde_relevance": "Flash 系列主打低延迟高吞吐，新版本可能改变推理服务的模型选型性价比。"
+        },
+        {
+          "title": "Anthropic 发布 Fable 5.1：Agent 长时运行 + 成本最高降 45%",
+          "source": "Anthropic / 华尔街日报",
+          "url": "https://www.anthropic.com/news",
+          "date": "2026-09-01",
+          "category": "模型发布",
+          "summary": "Anthropic 发布新一代旗舰模型 Fable 5.1，同时推出 Mythos 5.1。重点优化 Agent 连续运行数小时的能力，支持自主规划步骤、多工具调用、出错后继续执行。API 定价输入 $10/M token、输出 $50/M token，典型任务成本降低 25%，工具调用频繁的 Agent 任务成本最高降低 45%。",
+          "impact_level": "A",
+          "fde_relevance": "Agent 长时运行能力直接影响 Agent 服务的推理编排和成本模型；45% 成本降幅验证了工具调用优化的工程价值。"
+        },
         {
           "title": "DeepSeek V4 / V4-Flash 系列发布",
           "source": "DeepSeek",
@@ -262,6 +302,26 @@
       "name": "行业动态",
       "trends": [
         {
+          "title": "AI 3D 世界生成竞赛升温：影眸 Hyper3D + VAST 30 亿融资",
+          "source": "每日经济新闻",
+          "url": "http://m.toutiao.com/group/7680604065528660530/",
+          "date": "2026-09-01",
+          "category": "行业动态",
+          "summary": "影眸科技发布世界生成模型 Hyper3D WorldGen，上传场景图片即可自动生成独立 3D 资产。同日 3D 大模型公司 VAST 宣布完成约 30 亿元 B 轮/B+ 轮融资，发布 Tripo P2.0，首次实现原生四边面拓扑网格端到端生成。AI 3D 开启场景竞赛，迎来产业化分水岭。",
+          "impact_level": "C",
+          "fde_relevance": "3D/世界生成模型对推理集群提出新需求：高吞吐扩散模型服务化是 FDE 技能栈的新延伸方向。"
+        },
+        {
+          "title": "Box CEO：开源权重模型逼近企业级拐点，自训练模型门槛骤降",
+          "source": "X @levie (Box CEO) · follow-builders feed",
+          "url": "https://x.com/levie/status/2094650992818274514",
+          "date": "2026-09-01",
+          "category": "行业动态",
+          "summary": "Box CEO Aaron Levie：开源权重基础模型能力快速提升、后训练基础设施日益成熟商业化，拥有大量数据的企业现在可以合理地训练自己的模型，无需在研究层面与前沿实验室竞争。通用前沿模型仍在广泛任务上领先，但垂直领域模型数量将大幅增长。",
+          "impact_level": "B",
+          "fde_relevance": "企业自部署+微调需求上升，正是 FDE 岗位的核心场景扩张；后训练基础设施成熟降低了部署门槛。"
+        },
+        {
           "title": "Q1 2026 创纪录：$297B 风投，AI 占 80%",
           "source": "Crunchbase / KPMG",
           "url": "https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/",
@@ -427,6 +487,26 @@
       "name": "推理部署",
       "trends": [
         {
+          "title": "Vercel AI Gateway 新增 per-user 预算：token 成本治理基础设施化",
+          "source": "X @rauchg (Vercel CEO) · follow-builders feed",
+          "url": "https://x.com/rauchg/status/2094523399280435630",
+          "date": "2026-08-31",
+          "category": "推理部署",
+          "summary": "Vercel CEO Guillermo Rauch 指出：coding token 已成为基础设施，但多数企业仍用临时方式采购管理，缺乏容量规划与成本治理。Vercel AI Gateway 推出 per-key 和 per-user 预算功能，类比 AWS 密钥治理来管理 AI token 消耗。",
+          "impact_level": "B",
+          "fde_relevance": "token 成本治理正成为企业 AI 基础设施标准议题，对应 FDE 成本运营章节的实际落地需求。"
+        },
+        {
+          "title": "vLLM 安全修复 + AutoRound block-wise FP8 支持",
+          "source": "vLLM GitHub / repojournal",
+          "url": "https://repojournal.com/showcase/local-llm/2026-09-01/vllm-bounds-validation-errors-autoround-fp8-arrives",
+          "date": "2026-09-01",
+          "category": "推理部署",
+          "summary": "vLLM 发布安全修复：限制 validation-error 响应体大小，防止潜在 DoS 攻击。同时新增 AutoRound 格式的 block-wise FP8 支持，实现量化感知推理。同期 llama.cpp 和 SGLang 推送了 Blackwell 和 ROCm 的 kernel 融合优化。",
+          "impact_level": "B",
+          "fde_relevance": "推理服务安全修复需及时跟进升级；AutoRound FP8 为量化推理提供新格式支持；Blackwell/ROCm kernel 融合影响硬件选型和性能调优。"
+        },
+        {
           "title": "Q2 2026 推理引擎 Benchmark：vLLM vs SGLang vs TGI vs Triton",
           "source": "行业基准测试",
           "url": "https://iotdigitaltwinplm.com/llm-inference-benchmark-vllm-tgi-sglang-triton-q2-2026/",
@@ -512,6 +592,26 @@
       "name": "Agent 应用",
       "trends": [
         {
+          "title": "网易游戏建设企业级 AI Agent Infra 平台：编排/工具/记忆/安全平台化",
+          "source": "网易游戏招聘",
+          "url": "https://hr.game.163.com/recruit.html?cityStr=%E5%B9%BF%E5%B7%9E",
+          "date": "2026-09-01",
+          "category": "Agent 应用",
+          "summary": "网易游戏互动娱乐事业群启动企业级 AI Agent Infra 平台建设，目标将 Agent 的运行、编排、工具、记忆、安全等通用能力平台化，降低业务构建 Agent 的成本。招聘 AI 平台研发工程师（Agent Infra 方向）。",
+          "impact_level": "C",
+          "fde_relevance": "Agent Infra 平台化是企业级 Agent 部署的必然趋势，对应 FDE 岗位中 Agent 基础设施方向的需求。"
+        },
+        {
+          "title": "Vercel 推出 DESIGN.md：用 Markdown 解决 AI 设计 'slop' 问题",
+          "source": "X @rauchg (Vercel CEO) · follow-builders feed",
+          "url": "https://x.com/rauchg/status/2094541309579235680",
+          "date": "2026-08-31",
+          "category": "Agent 应用",
+          "summary": "Vercel CEO Guillermo Rauch 宣布：下一个设计系统是 Markdown。DESIGN.md 帮助解决 AI 时代最难的问题——设计同质化（slop），并在大型组织中规模化设计品味。",
+          "impact_level": "C",
+          "fde_relevance": "AI 生成内容的质量治理成为新议题，Markdown 作为设计系统的思路可迁移到 Agent 输出标准化。"
+        },
+        {
           "title": "MCP + A2A 协议标准化完成，Agent 互操作进入新阶段",
           "source": "freeCodeCamp / Google / Anthropic",
           "url": "https://www.freecodecamp.org/news/how-to-build-a-multi-agent-ai-system-with-langgraph-mcp-and-a2a-full-book/",
@@ -588,19 +688,19 @@
     {
       "title": "最新 S 级亮点",
       "items": [
-        "Kimi K3 开源：2.8 万亿参数，全球最大开源模型，原生多模态 + 百万上下文",
-        "OpenClaw 现象级爆发：30 万+ stars，GitHub 史上增长最快开源项目",
-        "DeepSeek V4 正式版：1M 上下文 + API 峰谷计费，Agent 能力补齐",
-        "智谱 GLM-5.3：极致后训练 Scaling，开源编程能力第一"
+        "Kimi K3 开源：2.8 万亿参数，全球参数量最大的开源模型（2026-07-17）",
+        "OpenClaw 现象级爆发：GitHub 史上增长最快开源项目（30 万+ s（2026-08-01）"
       ]
     },
     {
       "title": "A 级趋势速览",
       "items": [
-        "vLLM 连发 v0.27.0/v0.28.0：Kimi K3 全栈支持，昇腾获官方级推理支持",
-        "GPT-5.6（Sol/Terra/Luna）与 Claude Opus 4.8 密集发布，竞争聚焦 Coding 与 Agent",
-        "办公 Agent 巨头对垒：字节豆包工作（整合 TRAE/扣子/飞书）vs 腾讯 WorkBuddy",
-        "可灵 AI 融资近 30 亿美元；上半年全国 AI 投融资近乎翻倍"
+        "Anthropic 发布 Fable 5.1：Agent 长时运行 + 成本最高（2026-09-01）",
+        "智谱 GLM-5.3 发布：7430 亿参数，后训练 Scaling 拉满编程能（2026-08-14）",
+        "Claude Opus 4.8 发布：自适应推理，端到端长程任务击败 GPT-5（2026-08-10）",
+        "可灵 AI 融资近 30 亿美元：全球视频大模型融资纪录（2026-08-07）",
+        "vLLM v0.26.0 发布：411 commits，新增 Inkling 模（2026-08-20）",
+        "vLLM Ascend v0.18.0：华为昇腾 NPU 获官方级推理支持（2026-08-01）"
       ]
     }
   ]
